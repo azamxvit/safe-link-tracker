@@ -16,7 +16,7 @@ export const useCheckLink = () => {
     const validation = validateUrl(url);
     
     if (!validation.success) {
-      setError(validation.error.flatten().formErrors[0] ?? validation.error.errors[0]?.message ?? "Invalid URL");
+      setError(validation.error.flatten().formErrors[0] ?? validation.error.issues[0]?.message ?? "Invalid URL");
       setIsLoading(false);
       return;
     }

@@ -8,7 +8,7 @@ export interface CheckResult {
   checkedAt: string;
   domainAge?: {
     days: number;
-    createdData: string;
+    createdDate: string;
   };
 }
 
