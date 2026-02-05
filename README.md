@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛡️ SafeLink Tracker
 
-## Getting Started
+![Status](https://img.shields.io/badge/status-active-success)
+![Tech](https://img.shields.io/badge/stack-Next.js_15_|_TypeScript_|_Tailwind_v4-blue)
+![Mobile](https://img.shields.io/badge/mobile-Flutter_Companion_App-02569B)
 
-First, run the development server:
+**SafeLink Tracker** is a comprehensive anti-phishing ecosystem designed to protect users from malicious URLs in real-time. It combines a high-performance **Next.js Web Platform** with a cross-platform **Flutter Mobile App**, using heuristic analysis and domain age verification to calculate a "Trust Score" for any link.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> **Live Demo:** [https://safe-link-tracker.vercel.app](https://safe-link-tracker.vercel.app) (Replace with actual Vercel link if available)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **Heuristic Phishing Detection**: Analyzes URLs for suspicious patterns, keywords (e.g., "secure", "bonus"), and structure.
+* **Domain Age Intelligence**: Simulates WHOIS lookups to flag "fresh" domains (less than 14 days old) as high-risk.
+* **Trust Score Algorithm**: distinct scoring system (0-100) providing granular risk assessment rather than binary "Safe/Unsafe" results.
+* **Modern Design System**: Built with **Tailwind CSS v4** and **Shadcn/ui**, featuring a glassmorphism aesthetic and seamless Dark/Light mode.
+* **Cross-Platform Ecosystem**:
+    * **Web**: Next.js App Router for instant checks.
+    * **Mobile**: Companion Flutter app for checking links on the go (QR scanner & Share intent).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 Tech Stack
 
-## Learn More
+### Web Platform (This Repository)
+* **Framework**: Next.js 15 (App Router)
+* **Language**: TypeScript
+* **Styling**: Tailwind CSS v4, CSS Variables, `clsx`
+* **Components**: Shadcn/ui (Radix Primitives)
+* **Icons**: Lucide React
+* **Validation**: Zod
+* **Testing**: Vitest
 
-To learn more about Next.js, take a look at the following resources:
+### Mobile (Companion App)
+* **Framework**: Flutter
+* **Language**: Dart
+* **Networking**: HTTP (communicates with Next.js API Routes)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏗 Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project follows a **Feature-Sliced** inspired architecture to ensure scalability:
 
-## Deploy on Vercel
+* **`app/api/check-url`**: Acts as a Serverless Backend. It processes requests from both the Web Frontend and the Mobile App.
+* **`features/link-checker`**: Encapsulates all domain logic (API calls, React Query hooks, UI components specific to link checking).
+* **`components/ui`**: Reusable "dumb" components (Buttons, Cards, Inputs) based on the Design System.
+* **`lib/utils`**: Core utilities including strictly typed error handling and class merging.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ⚙️ Getting Started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/azamxvit/safe-link-tracker.git](https://github.com/azamxvit/safe-link-tracker.git)
+    cd safe-link-tracker
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    pnpm install
+    # or npm install
+    ```
+
+3.  **Start the development server**
+    ```bash
+    pnpm dev
+    ```
+
+4.  **Open the application**
+    * Visit `http://localhost:3000` to see the Web Interface.
+    * The API endpoint will be available at `http://localhost:3000/api/check-url`.
+
+## 👥 Team Prompt
+
+This project was designed and developed during the Hackathon by **Team Prompt**.
+
+| Contributor | Role | GitHub / Contact |
+| :--- | :--- | :--- |
+| **Azamat Omirtay** | Frontend Engineer & Architect | [@azamxvit](https://github.com/azamxvit) |
+| **Zhaksylyk Bektas** | Mobile Engineer (Flutter) | [bektaszhaksylyk@gmail.com](mailto:bektaszhaksylyk@gmail.com) |
+| **Berik Nursultan** | QA Engineer / Backend Developer | [isgdhre@gmail.com](mailto:isgdhre@gmail.com) |
+| **Yskakova Bakyt** | Mobile Engineer (Flutter) | [Bakyttiskaak@gmail.com](mailto:Bakyttiskaak@gmail.com) |
+
+---
+*Built with ❤️ for a safer internet.*
